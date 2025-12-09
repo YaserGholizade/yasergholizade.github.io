@@ -1,363 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yaser Gholizade Atani — Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaser Gholizade Atani</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        :root {
+            --primary-color: #2962ff;
+            --text-dark: #212529;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --border-color: #dee2e6;
+        }
 
-  <style>
-    :root{
-      --bg-1: #0f1724;
-      --bg-2: #122134;
-      --card-bg: rgba(255,255,255,0.04);
-      --accent: #6ee7b7;
-      --accent-2: #60a5fa;
-      --muted: rgba(255,255,255,0.72);
-      --radius: 14px;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      margin:0;
-      background: radial-gradient(1000px 600px at 10% 10%, rgba(96,165,250,0.06), transparent),
-                  linear-gradient(120deg,var(--bg-1),var(--bg-2));
-      color: #fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      padding: 36px 18px;
-    }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
 
-    .wrap{
-      max-width:1100px;
-      margin: 0 auto;
-      display:grid;
-      grid-template-columns: 330px 1fr;
-      gap: 24px;
-      align-items:start;
-    }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
-      border: 1px solid rgba(255,255,255,0.04);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(6px);
-    }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
 
-    .avatar{
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.08);
-      display:block;
-      margin: 0 auto 12px;
-      object-fit:cover;
-      box-shadow: 0 6px 24px rgba(2,6,23,0.6);
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-    h1{
-      font-size:20px;
-      margin:6px 0 2px;
-      text-align:center;
-    }
-    .title{
-      font-size:13px;
-      color:var(--muted);
-      text-align:center;
-      margin-bottom:10px;
-    }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-    .badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      justify-content:center;
-      margin:14px 0;
-    }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
 
-    .chip{
-      padding:6px 10px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      border-radius:999px;
-      font-size:12px;
-      color: #e6f7f0;
-      border:1px solid rgba(255,255,255,0.02);
-      box-shadow: 0 2px 8px rgba(2,6,23,0.45);
-    }
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
 
-    .socials{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      margin-top:10px;
-    }
-    .socials a{
-      text-decoration:none;
-      color:var(--muted);
-      background: rgba(255,255,255,0.02);
-      padding:8px;
-      border-radius:8px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:13px;
-      border:1px solid rgba(255,255,255,0.03);
-    }
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            font-weight: 300;
+        }
 
-    .main {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: var(--radius);
-      padding: 22px;
-      min-height: 300px;
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
-      backdrop-filter: blur(6px);
-    }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
 
-    .hero {
-      display:flex;
-      gap:18px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      margin-bottom:16px;
-    }
-    .hero .left{
-      flex:1 1 60%;
-    }
-    .hero h2{
-      margin:0;
-      font-size:22px;
-    }
-    .hero p.lead{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:14px;
-    }
+        .hero-content h2 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
 
-    .actions{
-      display:flex;
-      gap:10px;
-      justify-content:flex-end;
-      align-items:center;
-      flex: 0 0 auto;
-    }
-    .btn{
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color: #042028;
-      padding:10px 14px;
-      border-radius:10px;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow: 0 8px 20px rgba(96,165,250,0.08);
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      border: none;
-    }
-    .btn.secondary{
-      background:transparent;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.04);
-      font-weight:600;
-    }
+        .hero-content h3 {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:16px;
-    }
+        .hero-content h3 a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
 
-    .section {
-      background: var(--card-bg);
-      padding:14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .section h3{
-      margin:0 0 8px;
-      font-size:15px;
-    }
-    .muted{color:var(--muted); font-size:13px}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
 
-    .list{display:flex;flex-direction:column;gap:8px}
-    .item{
-      padding:10px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      border-radius:10px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .item a{color:var(--accent-2); text-decoration:none; font-weight:600; font-size:13px}
+        section {
+            margin-bottom: 4rem;
+        }
 
-    .contact-row{
-      display:flex;
-      gap:10px;
-      justify-content:flex-start;
-      margin-top:12px;
-      flex-wrap:wrap;
-    }
-    .pill{
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.02);
-      font-weight:600;
-      font-size:13px;
-      color:var(--muted);
-    }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
 
-    @media (max-width:980px){
-      .wrap{grid-template-columns: 1fr; padding-bottom:20px}
-      .actions{justify-content:flex-start; width:100%}
-    }
-  </style>
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .interests-list, .education-list {
+            list-style: none;
+        }
+
+        .interests-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .interests-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .degree-icon {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            display: block;
+        }
+
+        .institution {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .teaching-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .teaching-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .topic-tag {
+            background-color: var(--bg-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .publication-card {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s;
+        }
+
+        .publication-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .pub-authors {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .pub-venue {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .pub-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0.75rem 0;
+            color: var(--text-dark);
+        }
+
+        .pub-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .pub-title a:hover {
+            text-decoration: underline;
+        }
+
+        .pub-description {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-top: 0.75rem;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .exp-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-org {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-description {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .avatar {
+                margin: 0 auto;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- Left column -->
-    <aside class="card">
-      <img class="avatar" src="profile.jpg" alt="Yaser Gholizade Atani">
-      <h1>Yaser Gholizade Atani</h1>
-      <div class="title">Post-Doctoral Researcher — Computer Science</div>
+    <header>
+        <nav>
+            <a href="#" class="logo">Yaser Gholizade Atani</a>
+            <ul class="nav-links">
+                <li><a href="#about">About me</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#topics">Research Topics</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <div class="badges">
-        <div class="chip">Explainable AI</div>
-        <div class="chip">Deep Learning</div>
-        <div class="chip">Computer Vision</div>
-      </div>
-
-      <div class="socials">
-        <a href="mailto:yaser.gholizade@phd.unict.it">Email</a>
-        <a href="https://linkedin.com/in/YaserGholizade" target="_blank">LinkedIn</a>
-      </div>
-
-      <div style="margin-top:18px">
-        <div class="muted" style="text-align:center">Skills</div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px">
-          <span class="pill">Python</span>
-          <span class="pill">PyTorch</span>
-          <span class="pill">Computer Vision</span>
-          <span class="pill">XAI</span>
+    <div class="hero">
+        <div class="avatar">YG</div>
+        <div class="hero-content">
+            <h1>Yaser Gholizade Atani</h1>
+            <h2>Post-Doctoral Researcher in Computer Science</h2>
+            <h3><a href="https://www.unict.it/" target="_blank">University of Catania 🇮🇹</a></h3>
         </div>
-      </div>
+    </div>
 
-      <div style="margin-top:14px;text-align:center" class="muted">
-        <small>Post-Doc, University of Catania</small>
-      </div>
-    </aside>
+    <div class="container">
+        <section id="about">
+            <h2>About me</h2>
+            <div class="about-text">
+                <p>I'm a researcher at the University of Catania working on real-time processing of positioning data from fixed cameras and mobile GNSS sensors. My work focuses on Explainable Artificial Intelligence (XAI) and its applications in advancing data science.</p>
+                
+                <p style="margin-top: 1rem;">With a unique interdisciplinary background spanning two Ph.D. degrees—one in Computer Science and another in Applied Mathematics—I bridge theoretical foundations with practical implementations in AI and machine learning. My research has contributed to diverse fields including computer vision, medical data analysis, and urban management systems.</p>
+                
+                <p style="margin-top: 1rem;">Before my current position, I worked as a Machine Learning Engineer at Magfa, developing automated web crawling systems and anomaly detection algorithms, and as an AI Researcher at Iran's National Elites Foundation, focusing on deep learning-based object detection using state-of-the-art architectures like YOLO, RCNN variants, and SSD.</p>
+                
+                <p style="margin-top: 1rem;">I am passionate about making artificial intelligence more interpretable and accessible, with particular interest in how AI can address real-world challenges in healthcare, urban planning, and scientific research.</p>
+            </div>
 
-    <!-- Right column -->
-    <main class="main">
-      <div class="hero">
-        <div class="left">
-          <h2>Yaser Gholizade Atani</h2>
-          <p class="lead">Post-Doctoral Researcher in Computer Science — specializing in Explainable AI, Deep Learning, and Computer Vision.</p>
-        </div>
-
-        <div class="actions">
-          <a class="btn" href="#" download="Yaser_Gholizade_CV.pdf">Download CV</a>
-          <a class="btn secondary" href="mailto:yaser.gholizade@phd.unict.it">Contact</a>
-        </div>
-      </div>
-
-      <div class="grid">
-        <section class="section">
-          <h3>About Me</h3>
-          <p class="muted">I am a researcher in Artificial Intelligence focused on Explainable AI, Deep Learning, and Computer Vision. I aim to bridge the gap between innovative AI theory and practical applications in real-world systems.</p>
+            <div class="two-column">
+                <div>
+                    <h3>Interests</h3>
+                    <ul class="interests-list">
+                        <li>Explainable AI and Interpretation Machine Learning</li>
+                        <li>Neural Network and Deep Learning</li>
+                        <li>Computer Vision, Pattern Recognition and Object Detection</li>
+                        <li>Data Series Analysis</li>
+                        <li>Medical Data Analysis</li>
+                        <li>Causal Machine Learning</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Education</h3>
+                    <div class="education-list">
+                        <div class="education-item">
+                            <span class="degree-icon">🎓</span>
+                            <span class="degree">PhD in Computer Science, 2024</span>
+                            <span class="institution">University of Catania</span>
+                        </div>
+                        <div class="education-item">
+                            <span class="degree-icon">🎓</span>
+                            <span class="degree">PhD in Applied Mathematics, 2017</span>
+                            <span class="institution">Azarbaijan Shahid Madani University</span>
+                        </div>
+                        <div class="education-item">
+                            <span class="degree-icon">🎓</span>
+                            <span class="degree">M.Sc. in Applied Mathematics, 2012</span>
+                            <span class="institution">University of Tabriz</span>
+                        </div>
+                        <div class="education-item">
+                            <span class="degree-icon">🎓</span>
+                            <span class="degree">B.Sc in Applied Mathematics, 2009</span>
+                            <span class="institution">University of Tabriz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="section">
-          <h3>Education</h3>
-          <div class="muted" style="margin-bottom:8px">
-            <strong>Ph.D. in Computer Science</strong><br>University of Catania — 2021–2024
-          </div>
-          <div class="muted">
-            <strong>Ph.D. in Applied Mathematics</strong><br>Azarbaijan Shahid Madani University — 2012–2017
-          </div>
+        <section id="teaching">
+            <h2>Teaching</h2>
+            <div class="teaching-content">
+                <p>I served as a part-time lecturer from 2013 to 2021 at multiple prestigious institutions including Azarbaijan Shahid Madani University, Shahid Beheshti University of Medical Sciences, Islamic Azad University, University of Applied Science and Technology, and University College of Takestan.</p>
+                
+                <p style="margin-top: 1rem;">My teaching experience spans a wide range of mathematical and computational topics, from foundational courses to advanced statistical analysis and programming.</p>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Courses Taught</h3>
+            <div class="teaching-topics">
+                <span class="topic-tag">Statistics and Probability</span>
+                <span class="topic-tag">Advanced Statistical Analysis</span>
+                <span class="topic-tag">Differential Equations</span>
+                <span class="topic-tag">Calculus I and II</span>
+                <span class="topic-tag">Numerical Analysis</span>
+                <span class="topic-tag">Engineering Mathematics</span>
+                <span class="topic-tag">Discrete Mathematics</span>
+                <span class="topic-tag">Operations Research</span>
+                <span class="topic-tag">MATLAB Programming</span>
+            </div>
         </section>
 
-        <section class="section">
-          <h3>Work Experience</h3>
-          <div class="list">
-            <div class="item">
-              <div>
-                <div style="font-weight:700">Post-Doctoral Researcher</div>
-                <div class="muted">University of Catania — 2024–Present</div>
-              </div>
-              <div class="muted">Research</div>
+        <section id="publications">
+            <h2>Featured Publications</h2>
+            
+            <div class="publication-card">
+                <div class="pub-date">2024</div>
+                <h3 class="pub-title">Pre-pregnancy BMI, Gestational Weight Gain, and Telomere Length in Amniotic Fluid: a Causal Graph Analysis</h3>
+                <div class="pub-venue">Scientific Reports - Nature</div>
+                <p class="pub-description">Applied causal graph analysis to investigate the relationship between maternal health indicators and telomere length, contributing to understanding of prenatal health factors.</p>
+                <a href="#" class="btn-outline">DOI</a>
             </div>
 
-            <div class="item">
-              <div>
-                <div style="font-weight:700">Machine Learning Engineer</div>
-                <div class="muted">Magfa — 2019–2021</div>
-              </div>
-              <div class="muted">ML Dev</div>
+            <div class="publication-card">
+                <div class="pub-date">2024</div>
+                <h3 class="pub-title">Robust NeRF-based Digital Twins</h3>
+                <div class="pub-venue">IEEE COMSOC MMTC Communications - Frontiers</div>
+                <p class="pub-description">Explored the application of Neural Radiance Fields (NeRF) technology in creating robust digital twin representations, advancing the field of 3D reconstruction and virtual modeling.</p>
+                <a href="#" class="btn-outline">DOI</a>
             </div>
 
-            <div class="item">
-              <div>
-                <div style="font-weight:700">AI Researcher</div>
-                <div class="muted">Iran National Elites Foundation — 2017–2019</div>
-              </div>
-              <div class="muted">Research</div>
+            <div class="publication-card">
+                <div class="pub-date">2023</div>
+                <h3 class="pub-title">Feature Relevance in Classification of 3D Stone from Ancient Wall Structures</h3>
+                <div class="pub-venue">International Workshop on Pattern Recognition for Cultural Heritage (PatReCH), Udine, Italy</div>
+                <p class="pub-description">Developed machine learning approaches to classify and analyze 3D stone structures from ancient walls, contributing to digital preservation of cultural heritage.</p>
+                <a href="#" class="btn-outline">DOI</a>
             </div>
-          </div>
+
+            <div class="publication-card">
+                <div class="pub-date">2023</div>
+                <h3 class="pub-title">Project "Wall facing Automatic Image Identification Laboratory" – W.A.L.(L)</h3>
+                <div class="pub-venue">EUROGRAPHICS Workshop on Graphics and Cultural Heritage</div>
+                <p class="pub-description">Presented automated image identification system for wall facing analysis in cultural heritage preservation using computer vision techniques.</p>
+                <a href="#" class="btn-outline">DOI</a>
+            </div>
+
+            <div class="publication-card">
+                <div class="pub-date">2016</div>
+                <h3 class="pub-title">Breast Shape Parametrization through Planar Projections</h3>
+                <div class="pub-venue">Advanced Concepts for Intelligent Vision Systems, Springer</div>
+                <p class="pub-description">Developed novel parametrization methods using Principal Component Analysis (PCA) for medical imaging applications in breast shape analysis.</p>
+                <a href="#" class="btn-outline">DOI</a>
+            </div>
+
+            <div class="publication-card">
+                <div class="pub-date">2015</div>
+                <h3 class="pub-title">Edge Detection with Hessian Matrix Property Based on Wavelet Transform</h3>
+                <div class="pub-venue">Journal of Sciences, Islamic Republic of Iran</div>
+                <p class="pub-description">Introduced an innovative edge detection scheme combining Hessian matrix properties with wavelet transforms for improved image processing.</p>
+                <a href="#" class="btn-outline">DOI</a>
+            </div>
         </section>
 
-        <section class="section" style="grid-column:1 / -1">
-          <h3>Selected Publications</h3>
-          <div class="list">
-            <div class="item">
-              <div>
-                <a href="#">Pre-pregnancy BMI & Gestational Weight Gain Analysis — Scientific Reports (Nature) 2024</a>
-                <div class="muted">Health data analysis — co-authors: ...</div>
-              </div>
-              <div class="muted">2024</div>
+        <section id="experience">
+            <h2>Research Experience</h2>
+
+            <div class="experience-item">
+                <div class="exp-date">October 2024 - Present</div>
+                <div class="exp-title">Post-Doctoral Researcher in Computer Science</div>
+                <div class="exp-org">University of Catania, Catania, Italy</div>
+                <p class="exp-description">Real-time processing of positioning data coming from fixed cameras and from mobile GNSS sensors, developing advanced algorithms for location-based systems.</p>
             </div>
 
-            <div class="item">
-              <div>
-                <a href="#">Robust NeRF-based Digital Twins — IEEE COMSOC MMTC 2024</a>
-                <div class="muted">NeRF, Digital Twin research</div>
-              </div>
-              <div class="muted">2024</div>
+            <div class="experience-item">
+                <div class="exp-date">2023</div>
+                <div class="exp-title">Visiting PhD Researcher</div>
+                <div class="exp-org">University of Paris (LIPADE), Paris, France</div>
+                <p class="exp-description">Conducted research on global explainability of deep learning algorithms in data series analysis, contributing to the theoretical foundations of interpretable AI.</p>
             </div>
 
-            <div class="item">
-              <div>
-                <a href="#">Feature Relevance in Classification of 3D Stone — PatReCH 2023</a>
-                <div class="muted">3D classification — conference paper</div>
-              </div>
-              <div class="muted">2023</div>
+            <div class="experience-item">
+                <div class="exp-date">2019 - 2021</div>
+                <div class="exp-title">Machine Learning Engineer</div>
+                <div class="exp-org">Magfa, Iran</div>
+                <p class="exp-description">Developed automated web crawling systems for Iranian websites and implemented anomaly detection algorithms for identifying unusual activities (e.g., illegal gun sales, counterfeit logo usage) using state-of-the-art machine learning and deep learning techniques.</p>
             </div>
-          </div>
+
+            <div class="experience-item">
+                <div class="exp-date">2017 - 2019</div>
+                <div class="exp-title">AI Researcher</div>
+                <div class="exp-org">Iran National Elites Foundation, Tehran, Iran</div>
+                <p class="exp-description">Led research on object detection based on deep learning, implementing and evaluating neural network architectures including RCNN, Fast-RCNN, Faster-RCNN, YOLO (versions 1, 2, and 3), and SSD for urban management applications.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-date">2015 - 2016</div>
+                <div class="exp-title">Visiting PhD Researcher</div>
+                <div class="exp-org">University of Catania (IPLab), Catania, Italy</div>
+                <p class="exp-description">Conducted research on breast shape parametrization through planar projections using Principal Component Analysis (PCA) for medical imaging applications.</p>
+            </div>
         </section>
-      </div>
 
-      <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
-        <div class="muted">Interests: Explainable Models, Medical Vision, Digital Twins</div>
-        <div class="contact-row">
-          <a class="pill" href="https://linkedin.com/in/YaserGholizade" target="_blank">LinkedIn</a>
-          <a class="pill" href="mailto:yaser.gholizade@phd.unict.it">yaser.gholizade@phd.unict.it</a>
-          <a class="pill" href="#">GitHub</a>
-        </div>
-      </div>
-    </main>
-  </div>
+        <section id="topics">
+            <h2>Research Topics</h2>
+            <div class="tags-cloud">
+                <a href="#" class="tag">Explainable AI</a>
+                <a href="#" class="tag">Deep Learning</a>
+                <a href="#" class="tag">Computer Vision</a>
+                <a href="#" class="tag">Pattern Recognition</a>
+                <a href="#" class="tag">Object Detection</a>
+                <a href="#" class="tag">Data Series Analysis</a>
+                <a href="#" class="tag">Medical Imaging</a>
+                <a href="#" class="tag">Causal Machine Learning</a>
+                <a href="#" class="tag">Neural Networks</a>
+                <a href="#" class="tag">Wavelet Transform</a>
+                <a href="#" class="tag">Edge Detection</a>
+                <a href="#" class="tag">GNSS Systems</a>
+                <a href="#" class="tag">Cultural Heritage</a>
+                <a href="#" class="tag">NeRF</a>
+                <a href="#" class="tag">Digital Twins</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Yaser Gholizade Atani | Department of Mathematics and Computer Sciences, University of Catania</p>
+        <p style="margin-top: 0.5rem;">📧 yaser.gholizade@phd.unict.it | 📞 (+39) 3389002335</p>
+    </footer>
 </body>
 </html>
